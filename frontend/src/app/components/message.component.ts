@@ -10,4 +10,3 @@ export class MessageComponent {
     },{
         text : "some random second text",owner : "alam"
     }];
-}
