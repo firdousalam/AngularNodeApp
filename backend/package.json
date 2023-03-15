@@ -1,0 +1,27 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "this is my backend application using nodejs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/firdousalam/AngularNodeApp.git"
+  },
+  "keywords": [
+    "nodejs",
+    "meanstack"
+  ],
+  "author": "Firdous Alam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/firdousalam/AngularNodeApp/issues"
+  },
+  "homepage": "https://github.com/firdousalam/AngularNodeApp#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2"
+  }
+}

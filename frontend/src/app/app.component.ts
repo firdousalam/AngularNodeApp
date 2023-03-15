@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {MessageComponent} from './components/message.component'
+
 @Component({
   selector: 'app-root',
   template: `<messages></messages>`,
@@ -7,4 +8,6 @@ import {MessageComponent} from './components/message.component'
 })
 export class AppComponent {
   title = 'Mycode';
+
+
 }
