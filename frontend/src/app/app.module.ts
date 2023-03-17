@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MessageComponent } from './components/message.component';
@@ -17,12 +17,29 @@ import {ServiceMessage} from "./services/service.message";
 import { HttpClientModule } from '@angular/common/http';
 import { NewMessageComponent } from './components/new.message.component';
 import { FormsModule } from '@angular/forms';
+import { NavbarComponentComponent } from './components/navbar.component/navbar.component.component';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { HomeComponent } from './components/home/home.component';
 
+var routes: Routes = [{
+  path : '',
+  component:HomeComponent
+},
+{
+  path : 'messages',
+  component:MessageComponent
+},
+{
+  path : 'AddMessage',
+  component:NewMessageComponent
+}];
 @NgModule({
   declarations: [
     AppComponent,
     MessageComponent,
-    NewMessageComponent
+    NewMessageComponent,
+    NavbarComponentComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +54,10 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     MatDividerModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatToolbarModule,
+    RouterModule.forRoot(routes)
+
   ],
   providers: [ServiceMessage],
   bootstrap: [AppComponent]

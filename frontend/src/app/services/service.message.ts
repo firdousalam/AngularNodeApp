@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import {HttpConfig} from '../interface/httpConfig'
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
+
 const httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
@@ -32,6 +33,7 @@ export class ServiceMessage{
             `Backend returned code ${error.status}, body was: `, error.error);
         }
         // Return an observable with a user-facing error message.
+       
         return throwError(() => new Error('Something bad happened; please try again later.'));
       }
       
@@ -54,5 +56,6 @@ export class ServiceMessage{
             catchError(this.handleError)
           );
     }
+    
    
 }

@@ -1,12 +1,12 @@
 import { Component,ViewChild } from '@angular/core';
 import {MessageComponent} from './components/message.component'
-import { NewMessageComponent } from './components/new.message.component';
+import { NavbarComponentComponent } from './components/navbar.component/navbar.component.component'
 @Component({
   selector: 'app-root',
   template: `<div>
-                <h1>Hello Board </h1>
-                <new-message (onPosted)="onPosted($event)"></new-message>
-                <messages></messages>`,
+               <app-navbar></app-navbar>
+               <router-outlet></router-outlet>
+               `,
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
