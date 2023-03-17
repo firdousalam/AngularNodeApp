@@ -7,7 +7,7 @@ import {HttpConfig} from '../interface/httpConfig'
     template : `<div *ngFor="let message of messages">
                     <mat-card class="card">
                         
-                            <mat-card-title> {{message.owner}}</mat-card-title>
+                            <mat-card-title [routerLink]="['/UserMessage',message.owner]"> {{message.owner}}</mat-card-title>
                             <mat-card-content>{{message.text}} </mat-card-content>
                             
                        

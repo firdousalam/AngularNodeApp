@@ -2,6 +2,7 @@ import { Component,Output,EventEmitter } from "@angular/core";
 import { ServiceMessage } from "../services/service.message";
 import {HttpConfig} from '../interface/httpConfig';
 import { MessageComponent } from "./message.component";
+import {Router} from "@angular/router"
 //console.log(ServiceMessage.getMessages());
 @Component({
     selector : 'new-message',
@@ -30,7 +31,7 @@ import { MessageComponent } from "./message.component";
 export class NewMessageComponent {
     @Output() 
     onPosted = new EventEmitter();
-    constructor(private _serviceMessage : ServiceMessage){}
+    constructor(private _serviceMessage : ServiceMessage, private router: Router){}
      _msgcomponent = new MessageComponent(this._serviceMessage);
  message= {
     owner : "",
@@ -48,6 +49,8 @@ export class NewMessageComponent {
         this._serviceMessage.postMessage(this.message)
         .subscribe((data:any) => {console.log(data);
             this.onPosted.emit(this.message);
+            alert("saves successfully");
+            this.router.navigate(['/messages'])
         });
       
    }

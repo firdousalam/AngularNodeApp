@@ -20,6 +20,7 @@ import { FormsModule } from '@angular/forms';
 import { NavbarComponentComponent } from './components/navbar.component/navbar.component.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HomeComponent } from './components/home/home.component';
+import { UserMessageComponent } from './components/user-message/user-message.component';
 
 var routes: Routes = [{
   path : '',
@@ -32,6 +33,10 @@ var routes: Routes = [{
 {
   path : 'AddMessage',
   component:NewMessageComponent
+},
+{
+  path : 'UserMessage/:name',
+  component:UserMessageComponent
 }];
 @NgModule({
   declarations: [
@@ -39,7 +44,8 @@ var routes: Routes = [{
     MessageComponent,
     NewMessageComponent,
     NavbarComponentComponent,
-    HomeComponent
+    HomeComponent,
+    UserMessageComponent
   ],
   imports: [
     BrowserModule,
