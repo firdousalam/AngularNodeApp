@@ -15,11 +15,14 @@ import {MatInputModule} from '@angular/material/input';
 import {MatDividerModule} from '@angular/material/divider';
 import {ServiceMessage} from "./services/service.message";
 import { HttpClientModule } from '@angular/common/http';
+import { NewMessageComponent } from './components/new.message.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MessageComponent
+    MessageComponent,
+    NewMessageComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     MatInputModule,
     MatDividerModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [ServiceMessage],
   bootstrap: [AppComponent]
