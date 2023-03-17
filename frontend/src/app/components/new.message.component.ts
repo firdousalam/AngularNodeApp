@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component,Output,EventEmitter } from "@angular/core";
 import { ServiceMessage } from "../services/service.message";
 import {HttpConfig} from '../interface/httpConfig';
 import { MessageComponent } from "./message.component";
@@ -28,6 +28,8 @@ import { MessageComponent } from "./message.component";
 })
 
 export class NewMessageComponent {
+    @Output() 
+    onPosted = new EventEmitter();
     constructor(private _serviceMessage : ServiceMessage){}
      _msgcomponent = new MessageComponent(this._serviceMessage);
  message= {
@@ -44,7 +46,9 @@ export class NewMessageComponent {
         }
         console.log(this.message);
         this._serviceMessage.postMessage(this.message)
-        .subscribe((data:any) => {console.log(data); this._msgcomponent.ngOnInit()});
+        .subscribe((data:any) => {console.log(data);
+            this.onPosted.emit(this.message);
+        });
       
    }
  

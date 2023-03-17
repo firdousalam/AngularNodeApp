@@ -16,7 +16,10 @@ export class ServiceMessage{
    
     private _url:string = "http://localhost:5000/api/message";
     private _postUrl:string = "http://localhost:5000/api/message";
-    constructor(private http : HttpClient){}
+    message = [];
+    constructor(private http : HttpClient){
+      this.getMessagesFromService();
+    }
 
     private handleError(error: HttpErrorResponse) {
         if (error.status === 0) {
@@ -38,6 +41,11 @@ export class ServiceMessage{
         .pipe(
             catchError(this.handleError)
           );
+    }
+    async getMessagesFromService(){   
+      // now returns an Observable of Config
+        var response:any = await this.http.get(this._url).toPromise();
+        this.message = response;
     }
     postMessage(body:any):any{
         console.log("post data",body,this._postUrl);
