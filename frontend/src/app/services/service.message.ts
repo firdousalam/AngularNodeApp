@@ -17,7 +17,7 @@ export class ServiceMessage{
    
     private _url:string = "http://localhost:5000/api/message";
     private _postUrl:string = "http://localhost:5000/api/message";
-    message = [];
+    message:any = [];
     constructor(private http : HttpClient){
       this.getMessagesFromService();
     }
@@ -43,6 +43,16 @@ export class ServiceMessage{
         .pipe(
             catchError(this.handleError)
           );
+    }
+    getUserMessages(user:string){   
+      // now returns an Observable of Config
+        user = (user) ? '/'+user : '';
+      this.http.get(this._url+user).subscribe(response=>{
+        this.message = response;
+      },error =>{
+        alert(error);
+      });
+      
     }
     async getMessagesFromService(){   
       // now returns an Observable of Config

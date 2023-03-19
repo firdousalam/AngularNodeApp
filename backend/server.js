@@ -36,6 +36,14 @@ api.get('/message',(req,res)=>{
    
     res.json(messages);
 });
+api.get('/message/:user',(req,res)=>{
+   var userMessage = [];
+   var user = req.params.user;
+
+    var userMessage = messages.filter(message => message.owner==user)
+   
+    res.json(userMessage);
+});
 
 api.post('/message',(req,res)=>{
     console.log("post api hit");
