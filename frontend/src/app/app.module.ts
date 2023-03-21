@@ -16,16 +16,18 @@ import {MatDividerModule} from '@angular/material/divider';
 import {ServiceMessage} from "./services/service.message";
 import { HttpClientModule } from '@angular/common/http';
 import { NewMessageComponent } from './components/new.message.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponentComponent } from './components/navbar.component/navbar.component.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { HomeComponent } from './components/home/home.component';
 import { UserMessageComponent } from './components/user-message/user-message.component';
+import { RegistrationComponent } from './components/registration/registration.component';
 
 var routes: Routes = [{
   path : '',
-  component:HomeComponent
+  component:RegistrationComponent
 },
+
 {
   path : 'messages',
   component:MessageComponent
@@ -37,6 +39,10 @@ var routes: Routes = [{
 {
   path : 'UserMessage/:name',
   component:UserMessageComponent
+},
+{
+  path : 'Home',
+  component:HomeComponent
 }];
 @NgModule({
   declarations: [
@@ -45,7 +51,8 @@ var routes: Routes = [{
     NewMessageComponent,
     NavbarComponentComponent,
     HomeComponent,
-    UserMessageComponent
+    UserMessageComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +69,7 @@ var routes: Routes = [{
     HttpClientModule,
     FormsModule,
     MatToolbarModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(routes)
 
   ],

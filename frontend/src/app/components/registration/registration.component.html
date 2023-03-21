@@ -1,0 +1,46 @@
+
+<mat-card style="margin:20px;">
+    <form  [formGroup]="form" (ngSubmit)="onSubmit()">
+
+        <mat-form-field appearance="fill" class="formField">
+        <mat-label>First Name</mat-label>
+        <input matInput placeholder="Enter First Name" formControlName="firstName" 
+            [ngClass]="{'error':form.controls.firstName.invalid && form.controls.firstName.touched}">
+        
+        
+        </mat-form-field>
+
+
+        <mat-form-field appearance="fill"  class="formField">
+        <mat-label>Last Name</mat-label>
+        <input  matInput placeholder="Enter Last Name"  formControlName="lastName"
+            [ngClass]="{'error':form.controls.lastName.invalid && form.controls.lastName.touched}">
+        
+        
+        </mat-form-field>
+
+        <mat-form-field appearance="fill"  class="formField" >
+        <mat-label>Email</mat-label>
+        <input matInput type="email" placeholder="Enter Email"  formControlName="email"
+        [ngClass]="{'error':form.controls.email.invalid && form.controls.email.touched}">
+        
+        
+        </mat-form-field>
+
+        <mat-form-field appearance="fill"  class="formField">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" placeholder="Enter Password" minlength="10" formControlName="password"
+        [ngClass]="{'error':form.controls.password.invalid && form.controls.password.touched}">
+        
+        
+        </mat-form-field>
+
+        <mat-form-field appearance="fill"  class="formField">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput type="password" placeholder="Confirm Password" minlength="10" formControlName="confirmPassword"
+        [ngClass]="{'error':form.controls.confirmPassword.invalid && form.controls.confirmPassword.touched}">
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="primary">Submit</button>
+    </form>
+</mat-card>
